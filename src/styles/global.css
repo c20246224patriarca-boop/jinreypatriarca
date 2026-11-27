@@ -59,6 +59,12 @@ html[data-theme='light'] .surface {
 	border-color: #e5e7eb !important;
 }
 
+html[data-theme='light'] .input-bg {
+	background: white !important;
+	border-color: #d1d5db !important;
+	color: #18181b !important;
+}
+
 html[data-theme='light'] .muted,
 html[data-theme='light'] .text-gray-300,
 html[data-theme='light'] .text-gray-400,
