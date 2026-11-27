@@ -1,11 +1,51 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Header from '../components/Header.astro';
+import Hero from '../components/sections/Hero.astro';
+import About from '../components/sections/About.astro';
+import Skills from '../components/sections/Skills.astro';
+import Projects from '../components/sections/Projects.astro';
+import Contact from '../components/sections/Contact.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
 ---
 
-<Layout>
-	<Welcome />
-</Layout>
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Jinrey Patriarca | Developer Portfolio</title>
+		<meta
+			name="description"
+			content="Personal portfolio of Jinrey Patriarca - web developer and designer."
+		/>
+		<script is:inline>
+			const savedTheme = localStorage.getItem('site-theme');
+			document.documentElement.dataset.theme = savedTheme === 'light' ? 'light' : 'dark';
+		</script>
+		<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+	</head>
+
+	<body class="transition-colors duration-300">
+		<Header />
+		<main>
+			<Hero />
+			<About />
+			<Skills />
+			<Projects />
+			<Contact />
+		</main>
+		<Footer />
+		<a
+			href="#home"
+			class="fixed bottom-6 right-6 z-40 bg-purple-600 hover:bg-purple-700 w-11 h-11 rounded-xl flex items-center justify-center shadow-lg transition"
+			aria-label="Back to top"
+		>
+			↑
+		</a>
+		<script>
+			import '../scripts/animations.js';
+			import '../scripts/theme.js';
+		</script>
+	</body>
+</html>

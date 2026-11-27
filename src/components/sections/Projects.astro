@@ -1,0 +1,77 @@
+---
+const projects = [
+	{
+		number: '01',
+		name: 'Grand Stay Hotel',
+		category: 'Web Development',
+		description: 'A modern hotel check-in experience with elegant UI and responsive design.',
+		icon: '🏨',
+		color: 'from-purple-500/20 to-indigo-500/10',
+		tags: ['Astro', 'Tailwind', 'UI Design'],
+	},
+	{
+		number: '02',
+		name: 'Admin Dashboard',
+		category: 'Dashboard UI',
+		description: 'A clean dashboard for managing information, statistics, and data.',
+		icon: '📊',
+		color: 'from-blue-500/20 to-cyan-500/10',
+		tags: ['UI/UX', 'Dashboard', 'Responsive'],
+	},
+	{
+		number: '03',
+		name: 'Creative Portfolio',
+		category: 'Personal Project',
+		description: 'A personal creative space showcasing designs and web development.',
+		icon: '🎨',
+		color: 'from-pink-500/20 to-orange-500/10',
+		tags: ['Design', 'Portfolio', 'Frontend'],
+	},
+];
+---
+
+<section id="projects" class="section-bg bg-[#0d0d12] border-y border-white/5 py-24" data-reveal>
+	<div class="max-w-7xl mx-auto px-6">
+		<div class="flex flex-wrap justify-between items-end gap-6 mb-12">
+			<div>
+				<p class="text-purple-400 text-xs tracking-[0.25em] uppercase">Selected work</p>
+				<h2 class="text-3xl md:text-4xl font-bold mt-3">
+					Featured <span class="gradient-text">Projects</span>
+				</h2>
+			</div>
+			<p class="muted text-gray-500 text-sm max-w-sm">
+				A collection of projects built through creativity, practice, and learning.
+			</p>
+		</div>
+
+		<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+			{
+				projects.map((project) => (
+					<article class="project-card surface bg-[#12121a] rounded-2xl overflow-hidden border border-white/5 hover:border-purple-500/40">
+						<div
+							class={`h-52 bg-gradient-to-br ${project.color} flex items-center justify-center relative`}
+						>
+							<span class="absolute top-5 left-5 text-xs text-gray-400">{project.number}</span>
+							<span class="text-7xl">{project.icon}</span>
+							<div class="absolute bottom-4 right-4 text-xs text-gray-400">PROJECT PREVIEW ↗</div>
+						</div>
+
+						<div class="p-6">
+							<p class="text-purple-400 text-xs">{project.category}</p>
+							<h3 class="text-xl font-bold mt-2">{project.name}</h3>
+							<p class="muted text-gray-400 text-sm leading-7 mt-3">{project.description}</p>
+
+							<div class="flex flex-wrap gap-2 mt-5">
+								{project.tags.map((tag) => (
+									<span class="text-xs border border-white/10 rounded-lg px-3 py-1 text-gray-400">
+										{tag}
+									</span>
+								))}
+							</div>
+						</div>
+					</article>
+				))
+			}
+		</div>
+	</div>
+</section>
